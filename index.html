@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>b_l_u_m_J_e_d - a project by Shinji Furuya</title>
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+
+<body>
+  <!-- Title of game -->
+  <div class="title_name" class="word_wrap">
+    b_l_u_m_J_e_d
+  </div>
+  <!-- Tagline -->
+  <div id="tagline">
+    <i>The sort-of-fun word game you can kill time with!</i>
+  </div>
+  <!-- Results element - hidden by default -->
+  <div id="results" style="display:none;">
+    <p>
+      The last answer was:
+    </p>
+    <div id="lastanswer" class="last_results">
+    </div>
+    <p>
+      Your score:
+    </p>
+    <div id="lastscore" class="last_results">
+    </div>
+  </div>
+  <!-- The "start the game" button -->
+  <div id="startbtn">
+    <button onclick="goToCount()" class="go_btn">Click to start the game! :)</button>
+  </div>
+  <!-- Intro Text/Instructions -->
+  <div id="maintext">
+    -- INSTRUCTIONS --
+    <br><br>
+    Your objective is to guess what word is hidden inside the jumbled text. For example, the correct un-jumbled word for "<i>knliet </i>" would be "<i>tinkle </i>".
+    <br><br>
+    <div class="warning_red">
+      *** IMPORTANT NOTE ***
+      <br><br>
+      <i>The guesses you type MUST be in lowercase!</i>
+    </div>
+    <br>
+    * (If you get stuck, click on the hint button. The first hint will capitalize the first letter of the correct answer, and the second hint will provide you with a definition of the word. If you still can't figure it out, click on the skip button to move onto the next word.)
+  </div>
+  
+  <!-- Main Countdown element - hidden by default -->
+  <div id="countbox" style="display:none; font-size:120px; padding:25px;">
+  </div>
+  
+  <!-- Display of Timer, Correct, High Score -->
+  <div id="inforow" style="display:none;">
+ 
+    <div class="info_bar">
+      <div>
+        Timer:
+      </div>
+      <div id="timerbox" class="num_line">
+      </div>    
+    </div>
+
+    <div class="info_bar">
+      <div>
+        Correct:
+      </div>
+      <div id="correctbox" class="num_line">
+      </div>
+    </div>
+
+    <div class="info_bar">
+      <div>
+        High Score:
+      </div>
+      <div id="highscorebox" class="num_line">
+      </div>
+    </div>    
+  </div>
+  
+  <!-- Where the word is displayed -->
+  <div>
+    <div id="gamebox" class="question_area word_wrap" style="display:none;">
+    </div>
+    <!-- Text input area -->
+    <div id="inputbox" style="display:none;">
+      <!-- Need to add a "return false" statement to prevent the page from refreshing -->
+      <form id="form1" onsubmit="checkGuess(); return false;">
+        <input type="text" id="user_id" name="userguess" class="default_font" size=20 placeholder="Type here!" autocomplete="off">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  
+  <!-- Message when user guesses incorrectly - hidden by default -->
+  <p>
+    <div id="wrongmsg" class="warning_red" style="visibility:hidden;">_
+    </div>
+  </p>
+  
+  <!-- Bottom buttons -->
+  <div id="bottombtns" style="visibility:hidden;">
+    <button id="hintbtn" class="hint_btn0 default_btn" onclick="firstHint()">Hint #1
+    </button>
+
+    <button id="skipbtn" class="hint_skip default_btn" onclick="getWord()">Skip Word
+    </button>
+
+    <button id="quitbtn" class="hint_quit default_btn" onclick="quitRound()">Quit
+    </button>
+  </div>
+  
+  <!-- Definition of the word - hidden by default -->
+  <p>
+    <div id="defbox" class="hint_def" style="display:none;">
+    </div>
+  </p>
+
+</body>
+</html>
